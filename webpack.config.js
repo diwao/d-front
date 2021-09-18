@@ -1,10 +1,10 @@
 module.exports = {
   mode: 'development',
   entry: {
-    app: ['./app/src/ts/app.ts']
+    app: ['./app/src/ts/app.ts'],
   },
   output: {
-    filename: '[name].bundle.js'
+    filename: '[name].bundle.js',
   },
   module: {
     rules: [
@@ -12,19 +12,20 @@ module.exports = {
         test: /\.ts$/,
         use: [
           {
-            loader: 'ts-loader'
-          }
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env', '@babel/preset-typescript'],
+            },
+          },
         ],
-        exclude: /node_modules/
-      }
-    ]
+        exclude: /node_modules/,
+      },
+    ],
   },
   resolve: {
-    alias: {
-      vue$: 'vue/dist/vue.esm.js'
-    },
-    extensions: ['.ts', '.webpack.js', '.web.js', '.js']
-  }
+    extensions: ['.ts', '.js'],
+  },
+  target: ['web', 'es5'],
 };
 
 if (process.env.NODE_ENV !== 'production') {
