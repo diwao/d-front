@@ -8,7 +8,7 @@ const browserSync = require('browser-sync');
 const conf = require('../config');
 
 // scss modules
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const flexBugsFixes = require('postcss-flexbugs-fixes');
@@ -19,7 +19,7 @@ const mode = process.env.NODE_ENV;
 
 // options
 const autoprefixerOption = {
-  grid: true
+  grid: true,
 };
 
 let postcssOption = [flexBugsFixes, autoprefixer(autoprefixerOption)];
@@ -29,13 +29,13 @@ if (mode === 'production') {
 }
 
 // task
-const compileScss = done => {
+const compileScss = (done) => {
   const scssSrc = conf.src + conf.sass.src;
   const scssDest = conf.dest + conf.sass.dest;
   src(scssSrc)
     .pipe(
       plumber({
-        errorHandler: notify.onError('Error: <%= error.message %>')
+        errorHandler: notify.onError('Error: <%= error.message %>'),
       })
     )
     .pipe(sass())

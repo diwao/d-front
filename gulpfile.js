@@ -9,7 +9,6 @@ const conf = require('./config');
 const compileScss = require('./gulp/sass');
 const compilePug = require('./gulp/pug');
 const transpileTs = require('./gulp/script');
-const minifyImages = require('./gulp/image');
 const copy = require('./gulp/copy');
 const validHtml = require('./gulp/htmlhint');
 const validScript = require('./gulp/eslint');
@@ -23,19 +22,12 @@ const defaultTask = () => {
   watch(`${src}${conf.sass.src}`, compileScss);
   watch(`${src}${conf.pug.src}`, compilePug);
   watch(`${src}${conf.script.src}`, transpileTs);
-  watch(`${src}${conf.imagemin.src}`, minifyImages);
 };
 exports.default = defaultTask;
 // check
 exports.validate = series(validHtml, validScript);
 // build
-exports.build = parallel(
-  compileScss,
-  compilePug,
-  transpileTs,
-  minifyImages,
-  copy
-);
+exports.build = parallel(compileScss, compilePug, transpileTs, copy);
 
 // // release
 exports.release = series(
@@ -43,7 +35,6 @@ exports.release = series(
   compileScss,
   compilePug,
   transpileTs,
-  minifyImages,
   copy,
   validHtml,
   validScript
