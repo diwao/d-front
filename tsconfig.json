@@ -5,6 +5,7 @@
     "module": "amd",
     "moduleResolution": "node",
     "strict": true,
-    "lib": ["DOM"]
+    "lib": ["DOM"],
+    "esModuleInterop": true
   }
 }
