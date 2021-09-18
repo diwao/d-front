@@ -8,14 +8,15 @@ const plumber = require('gulp-plumber');
 // modules
 const webpackStream = require('webpack-stream');
 const webpack = require('webpack');
-const webpackConfig = require('../webpack.config');
+const webpackConfigDev = require('../webpack.dev');
+const webpackConfigProd = require('../webpack.prod');
 
 // task
 const transpileTs = (done) => {
   const mode = process.env.NODE_ENV;
-  if (mode === 'production') {
-    webpackConfig.mode = mode;
-  }
+  const webpackConfig =
+    mode === 'development' ? webpackConfigDev : webpackConfigProd;
+
   const conf = require('../config');
   const destTs = conf.dest + conf.script.dest;
   webpackStream(webpackConfig, webpack)
