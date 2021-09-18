@@ -1,5 +1,4 @@
 module.exports = {
-  mode: 'development',
   entry: {
     app: ['./app/src/ts/app.ts'],
   },
@@ -27,7 +26,3 @@ module.exports = {
   },
   target: ['web', 'es5'],
 };
-
-if (process.env.NODE_ENV !== 'production') {
-  module.exports.devtool = 'inline-source-map';
-}
