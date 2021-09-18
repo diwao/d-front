@@ -8,16 +8,19 @@ export default (to: number, callback?: () => void) => {
     e.preventDefault();
   });
 
-  $('html,body').animate({
-    scrollTop: to
-  }, {
-    duration: 500,
-    complete: function () {
-      // ユーザーのスクロール操作許可
-      $(document).off('touchmove mousewheel');
-      if (typeof callback === 'function') {
-        callback();
-      }
+  $('html,body').animate(
+    {
+      scrollTop: to,
+    },
+    {
+      duration: 500,
+      complete: function () {
+        // ユーザーのスクロール操作許可
+        $(document).off('touchmove mousewheel');
+        if (typeof callback === 'function') {
+          callback();
+        }
+      },
     }
-  });
+  );
 };

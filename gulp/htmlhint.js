@@ -8,12 +8,12 @@ const plumber = require('gulp-plumber');
 
 const config = require('../config');
 
-const validHtmlhint = done => {
+const validHtmlhint = (done) => {
   const htmlhintSrc = `${config.dest}${config.htmlhint.src}`;
   src(htmlhintSrc)
     .pipe(
       plumber({
-        errorHandler: notify.onError('Error: <%= error.message %>')
+        errorHandler: notify.onError('Error: <%= error.message %>'),
       })
     )
     .pipe(htmlhint('.htmlhintrc'))

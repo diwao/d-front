@@ -12,7 +12,7 @@ const conf = require('../config');
 const pug = require('gulp-pug');
 
 // task
-const compilePug = done => {
+const compilePug = (done) => {
   const pugSrc = [conf.src + conf.pug.src, '!' + conf.src + conf.pug.exclude];
   const pugDest = conf.dest + conf.pug.dest;
   const pugOptions = { pretty: true };
@@ -22,7 +22,7 @@ const compilePug = done => {
   src(pugSrc)
     .pipe(
       plumber({
-        errorHandler: notify.onError('Error: <%= error.message %>')
+        errorHandler: notify.onError('Error: <%= error.message %>'),
       })
     )
     .pipe(pug(pugOptions))
