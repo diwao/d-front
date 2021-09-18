@@ -1,47 +1,70 @@
 # d-front
 
-フロントエンド開発用のテンプレートです。
+## Overview
+
+This is a template project for front-end development such as websites and landing pages.
+
+You can use below languages:
 
 - pug
 - scss
 - TypeScript
 
-が使えます。
+## Getting started
 
-## 使い方
+First, you have to install packages from npm.
 
 ```
 $ npm install
-$ npm run build
+```
+
+And then, type below command and launch your local server.
+
+```
 $ npm run start
 ```
 
-ここまでやるとローカルにサーバが起動します。
-src 内のファイルをいじってサイトを作っていきましょう。
+## Usage
+
+### Release
+
+You can create files for production.
 
 ```
 $ npm run release
 ```
 
-でリリース用のファイルを生成します。
+### Validation
 
-### static
-
-`src`直下の`static`ディレクトリに配置したファイルはそのまま dist に出力されます。
-
-### バリデーション
+You can validate TypeScript files and html files in `/app/dist/` directory.
 
 ```
 $ npm run validate
 ```
 
-で TypeScript と dist 内の HTML をチェックできます。
+## Testing
 
-## テスト
+You can run jest for the files in `/test/` directory.
 
-jest が使えます。テストファイルはの置き場所は root 直下の`test`ディレクトリです。
+```
+$ npm run test
+```
 
-## 推奨環境
+## Test with coverage report
+
+You can create the report for checking test coverage.
+
+```
+$ npm run test:coverage
+```
+
+## Notes about directory structure
+
+### static
+
+You can copy files from under `/app/src/static/` to `/app/dist/` directory with keeping the directory structure.
+
+## Enviroment
 
 |         | version  |
 | ------- | -------- |
