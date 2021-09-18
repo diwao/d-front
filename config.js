@@ -7,25 +7,20 @@ module.exports = {
   pug: {
     src: '/pug/**/*.pug',
     exclude: '/pug/**/_*.pug',
-    dest: '/'
+    dest: '/',
   },
   // sass
   sass: {
     src: '/scss/**/*.scss',
-    dest: '/assets/css/'
+    dest: '/assets/css/',
   },
   // typescript
   script: {
     src: '/ts/**/*.ts',
-    dest: '/assets/js/'
-  },
-  //imagemin
-  imagemin: {
-    src: '/images/**/*',
-    dest: '/assets/images/'
+    dest: '/assets/js/',
   },
   // htmlhint
   htmlhint: {
-    src: ['/**/*.html']
-  }
+    src: ['/**/*.html'],
+  },
 };

@@ -2,9 +2,9 @@
 
 フロントエンド開発用のテンプレートです。
 
-* pug
-* scss
-* TypeScript
+- pug
+- scss
+- TypeScript
 
 が使えます。
 
@@ -17,7 +17,7 @@ $ npm run start
 ```
 
 ここまでやるとローカルにサーバが起動します。
-src内のファイルをいじってサイトを作っていきましょう。
+src 内のファイルをいじってサイトを作っていきましょう。
 
 ```
 $ npm run release
@@ -27,7 +27,7 @@ $ npm run release
 
 ### static
 
-`src`直下の`static`ディレクトリに配置したファイルはそのままdistに出力されます。
+`src`直下の`static`ディレクトリに配置したファイルはそのまま dist に出力されます。
 
 ### バリデーション
 
@@ -35,16 +35,15 @@ $ npm run release
 $ npm run validate
 ```
 
-でTypeScriptとdist内のHTMLをチェックできます。
+で TypeScript と dist 内の HTML をチェックできます。
 
 ## テスト
 
-jestが使えます。テストファイルはの置き場所はroot直下の`test`ディレクトリです。
-
+jest が使えます。テストファイルはの置き場所は root 直下の`test`ディレクトリです。
 
 ## 推奨環境
 
-|    | version  |
-| ---- | ---- |
-|  node.js  | v10.15.1  |
-|  npm  | v6.11.2  |
+|         | version  |
+| ------- | -------- |
+| node.js | v14.17.0 |
+| npm     | v6.14.13 |
