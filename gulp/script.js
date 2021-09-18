@@ -11,7 +11,7 @@ const webpack = require('webpack');
 const webpackConfig = require('../webpack.config');
 
 // task
-const transpileTs = done => {
+const transpileTs = (done) => {
   const mode = process.env.NODE_ENV;
   if (mode === 'production') {
     webpackConfig.mode = mode;
@@ -21,7 +21,7 @@ const transpileTs = done => {
   webpackStream(webpackConfig, webpack)
     .pipe(
       plumber({
-        errorHandler: notify.onError('Error: <%= error.message %>')
+        errorHandler: notify.onError('Error: <%= error.message %>'),
       })
     )
     .pipe(dest(destTs));

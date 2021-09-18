@@ -4,7 +4,7 @@
 const { src, dest } = require('gulp');
 const conf = require('../config');
 
-const copy = done => {
+const copy = (done) => {
   const copySrc = './app/src/static/**';
   const copyDest = conf.dest + '/';
   src(copySrc).pipe(dest(copyDest + '/'));

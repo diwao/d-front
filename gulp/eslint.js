@@ -9,19 +9,19 @@ const plumber = require('gulp-plumber');
 const config = require('../config');
 
 // task
-const validEslint = done => {
+const validEslint = (done) => {
   const eslintSrc = `${config.src}${config.script.src}`;
   src(eslintSrc)
     .pipe(
       plumber({
-        errorHandler: notify.onError('Error: <%= error.message %>')
+        errorHandler: notify.onError('Error: <%= error.message %>'),
       })
     )
     .pipe(eslint({ userEslintrc: true }))
     .pipe(eslint.format())
     .pipe(eslint.failAfterError())
     .pipe(
-      eslint.result(function(result) {
+      eslint.result(function (result) {
         if (result.errorCount !== 0) {
           return;
         }

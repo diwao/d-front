@@ -4,7 +4,7 @@ import * as $ from 'jquery';
 
 export default (selector: string, _margin = 0, callback?: () => void) => {
   // console.log($);
-  $(selector).on('click', function(e) {
+  $(selector).on('click', function (e) {
     e.preventDefault();
     const hash: string = $(this).attr('href');
     let target: string = 'html';
