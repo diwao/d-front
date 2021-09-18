@@ -11,7 +11,8 @@
     "build": "NODE_ENV=development gulp build",
     "release": "NODE_ENV=production gulp release",
     "validate": "gulp validate",
-    "test": "jest --coverage"
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
