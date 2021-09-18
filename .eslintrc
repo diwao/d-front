@@ -7,7 +7,7 @@
     "ga": true,
     "jQuery": true
   },
-  "extends": "eslint:recommended",
+  "extends": ["eslint:recommended", "plugin:jest/recommended"],
   "env": {
     "browser": true,
     "node": true,
