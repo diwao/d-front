@@ -1,6 +1,6 @@
 module.exports = {
   entry: {
-    app: ['./app/src/ts/app.ts'],
+    app: ['@babel/polyfill', './app/src/ts/app.ts'],
   },
   output: {
     filename: '[name].bundle.js',
