@@ -7,10 +7,10 @@ class FixBody {
     this.scrollTop = 0;
   }
 
-  fix() {
+  fix(): void {
     const body = document.querySelector('body');
     const scrollTop = window.scrollY;
-    body.setAttribute(
+    body?.setAttribute(
       'style',
       `top: -${scrollTop}px; position: fixed; width: 100%`
     );
@@ -18,9 +18,9 @@ class FixBody {
     this.scrollTop = scrollTop;
   }
 
-  release() {
+  release(): void {
     const body = document.querySelector('body');
-    body.setAttribute('style', '');
+    body?.setAttribute('style', '');
 
     // console.log(window);
     // console.log(this.scrollTop);
