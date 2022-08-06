@@ -64,9 +64,9 @@ $ npm run test:coverage
 
 You can copy files from under `/app/src/static/` to `/app/dist/` directory with keeping the directory structure.
 
-## Enviroment
+## Recommended Enviroment
 
 |         | version  |
 | ------- | -------- |
-| node.js | v14.17.0 |
-| npm     | v6.14.13 |
+| node.js | v16.16.0 |
+| npm     | v8.11.0  |
