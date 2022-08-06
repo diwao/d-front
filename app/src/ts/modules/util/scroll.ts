@@ -1,26 +1,22 @@
 'use strict';
+import { gsap } from 'gsap';
 
-import * as $ from 'jquery';
-
-export default (to: number, callback?: () => void) => {
-  // ユーザーのスクロール操作禁止
-  $(document).on('touchmove mousewheel', function (e) {
+export default (to: number, callback?: () => void): void => {
+  function stopScroll(e: Event) {
     e.preventDefault();
-  });
+  }
+  // ユーザーのスクロール操作禁止
+  document.addEventListener('touchmove mousewheel', stopScroll);
 
-  $('html,body').animate(
-    {
-      scrollTop: to,
+  gsap.to('html,body', {
+    duration: 0.5,
+    scrollTop: to,
+    onComplete() {
+      // ユーザーのスクロール操作許可
+      document.removeEventListener('touchmove mousewheel', stopScroll);
+      if (typeof callback === 'function') {
+        callback();
+      }
     },
-    {
-      duration: 500,
-      complete: function () {
-        // ユーザーのスクロール操作許可
-        $(document).off('touchmove mousewheel');
-        if (typeof callback === 'function') {
-          callback();
-        }
-      },
-    }
-  );
+  });
 };
